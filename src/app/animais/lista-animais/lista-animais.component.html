@@ -1,1 +1,4 @@
-<p>lista-animais works!</p>
+<!-- atribui o que está no observable dentro da variavel animais -->
+<div *ngIf="animais$ | async as animais">
+  <app-grade-fotos-animais [animais]="animais"></app-grade-fotos-animais>
+</div>
