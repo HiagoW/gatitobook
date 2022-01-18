@@ -1,6 +1,23 @@
 <header class="sticky-top">
   <nav class="navbar navbar-light bg-white">
-    <a class="navbar-brand">Gatito Book</a>
+    <a class="navbar-brand">
+      <i class="fa fa-bars mr-2"
+        (click)="menu.abreMenu()"
+        (keyup.space)="menu.abreMenu()">
+
+      </i>
+      Gatito Book
+    </a>
+
+    <!-- #menu para salvar referencia ao componente na variável menu -->
+    <app-menu #menu>
+      <ul class="list-unstyled">
+        <li>
+          <a [routerLink]="['animais','novo']">Novo Animal</a>
+        </li>
+      </ul>
+    </app-menu>
+
     <!-- | async pega faz subscribe no observable de usuario -->
     <div *ngIf="user$|async as user">
       <div *ngIf="user.name; else login">
@@ -10,6 +27,7 @@
         </i>
       </div>
     </div>
+
   </nav>
 
   <ng-template #login>
